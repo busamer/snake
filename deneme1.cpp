@@ -10,7 +10,7 @@ enum YONLER{ sag, sol ,asagi , yukari , bos };
 
 const int MAX_YILAN_BOYU = 215;
 const int YUKSEKLIK = 15;
-const int GENISLIK = 15;
+const int GENISLIK = 20;
 
 const char ch = 219;
 char tuslar[256];
