@@ -276,7 +276,7 @@ int main(){
 	alan.cursorGizle();
 	
 	while(true){
-		Sleep(30);
+		Sleep(50);
 		alan.temizle();
 		/*
 		
