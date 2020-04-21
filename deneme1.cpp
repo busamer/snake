@@ -8,13 +8,11 @@ using namespace std;
 enum YONLER{ sag, sol ,asagi , yukari , bos };
 
 
-const int MAX_YILAN_BOYU = 200;
-const int YUKSEKLIK = 20;
-const int GENISLIK = 80;
+const int MAX_YILAN_BOYU = 215;
+const int YUKSEKLIK = 15;
+const int GENISLIK = 15;
 
 const char ch = 219;
-//const int genislik=80,yukseklik=20;
-//char sahne[genislik][yukseklik];
 char tuslar[256];
 
 
@@ -60,7 +58,7 @@ void klavyeKontrol(){
 	}
 }
 
-YONLER yeniYon(){	//klavyede basýlý olan yönü döndürür
+YONLER yeniYon(){	//klavyede basÄ±lÄ± olan yÃ¶nÃ¼ dÃ¶ndÃ¼rÃ¼r
 	klavyeKontrol();
 	if(tuslar['A']){
 		return sol;
@@ -125,7 +123,7 @@ void YILAN::sifirla(){ //yilandaki kontrolleri 0 YAZAR
 		snake.yilan[i].kontrol = 0;	
 	}
 }
-void YILAN::olustur(int size){ //yilanin parcalarinin bilgilerini OLUÞTURUR
+void YILAN::olustur(int size){ //yilanin parcalarinin bilgilerini OLUÅžTURUR
 	for(int i = 0; i<size ; i++){
 		snake.yilan[i].x = size-i;
 		snake.yilan[i].y = 2;
@@ -134,7 +132,7 @@ void YILAN::olustur(int size){ //yilanin parcalarinin bilgilerini OLUÞTURUR
 	}
 	snake.yilan_boyu = size;
 }
-void YILAN::sahneyeYaz(){ //dolu elemanlarýn x ve ylerini sahneye YAZAR
+void YILAN::sahneyeYaz(){ //dolu elemanlarÄ±n x ve ylerini sahneye YAZAR
 	int i = 0;
 	while(snake.yilan[i].kontrol){
 		alan.sahne[snake.yilan[i].x][snake.yilan[i].y] = ch;	
@@ -216,7 +214,7 @@ void SAHNE::cursorGizle(){
 	cursorI.bVisible = false;
 	SetConsoleCursorInfo(out , &cursorI);
 }
-void SAHNE::sinirYaz(){ //sahneye sýnýrlarý YAZAR
+void SAHNE::sinirYaz(){ //sahneye sÄ±nÄ±rlarÄ± YAZAR
 	for(int i=0;i<alan.genislik ; i++){
 		alan.sahne[i][0] = 219;
 		alan.sahne[i][alan.yukseklik-1] = 219; 
@@ -233,7 +231,7 @@ void SAHNE::git(int x,int y){ //istenen yere gider
 	coord.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(ACIK_EKRAN) , coord);
 }
-void SAHNE::ciz(){ //sahneyi ÇÝZER
+void SAHNE::ciz(){ //sahneyi Ã‡Ä°ZER
 	git(0,0);
 	for(int y = 0; y < alan.yukseklik ; y++){
 		for(int x=0 ; x < alan.genislik ; x++){
